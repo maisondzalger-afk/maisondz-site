@@ -197,6 +197,24 @@ const PRODUCTS = [
       "images/sabr-front-noir.png",
       "images/sabr-back-noir.png"
     ]
+  },
+  {
+    id: "tawakul",
+    name: "Tee-shirt Trust The Process Tawakul",
+    price: 3900,
+    oldPrice: 4200,
+    colors: ["Blanc", "Noir"],
+    sizes: ["S", "M", "L", "XL"],
+    tagline: "Effort & foi",
+    description: "Avancer sans tout contrôler. Faire les choses, puis lâcher prise.\n\n« Trust the process » s'associe à « Tawakul », une notion ancrée dans la confiance et la patience.\n\nUn équilibre entre effort et foi. Un message simple, porté avec intention.",
+    image: "images/tawakul-front-blanc.png",
+    hoverImage: "images/tawakul-back-blanc.png",
+    gallery: [
+      "images/tawakul-front-blanc.png",
+      "images/tawakul-back-blanc.png",
+      "images/tawakul-front-noir.png",
+      "images/tawakul-back-noir.png"
+    ]
   }
 ];
 
