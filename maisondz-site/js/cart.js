@@ -154,41 +154,34 @@ function renderCartPage(){
   if(totalEl) totalEl.textContent = formatDA(cartTotal());
 }
 
-/* ---------- Commande via WhatsApp ---------- */
-function buildOrderMessage(){
+/* ---------- Commande — envoi direct par e-mail (Resend via fonction Netlify) ---------- */
+function buildOrderPayload(){
   const items = readCart();
   const form = document.getElementById("checkoutForm");
-  let lines = [];
-  lines.push("Bonjour Maison DZ, je souhaite passer commande :");
-  lines.push("");
-  items.forEach(i => {
-    const p = getProduct(i.productId);
-    if(!p) return;
-    lines.push(`• ${p.name} — ${i.color}, taille ${i.size} — x${i.qty} — ${formatDA(p.price * i.qty)}`);
-  });
-  lines.push("");
-  lines.push(`Total : ${formatDA(cartTotal())}`);
-  lines.push("");
 
-  if(form){
-    const nom = form.querySelector("#ckNom")?.value.trim();
-    const tel = form.querySelector("#ckTel")?.value.trim();
-    const wilaya = form.querySelector("#ckWilaya")?.value.trim();
-    const commune = form.querySelector("#ckCommune")?.value.trim();
-    const adresse = form.querySelector("#ckAdresse")?.value.trim();
-    lines.push("Mes informations de livraison :");
-    if(nom) lines.push(`Nom : ${nom}`);
-    if(tel) lines.push(`Téléphone : ${tel}`);
-    if(wilaya) lines.push(`Wilaya : ${wilaya}`);
-    if(commune) lines.push(`Commune : ${commune}`);
-    if(adresse) lines.push(`Adresse : ${adresse}`);
-    lines.push("");
-  }
-  lines.push("Paiement à la livraison (Cash).");
-  return lines.join("\n");
+  const orderItems = items.map(i => {
+    const p = getProduct(i.productId);
+    return p ? {
+      name: p.name,
+      color: i.color,
+      size: i.size,
+      qty: i.qty,
+      lineTotal: p.price * i.qty
+    } : null;
+  }).filter(Boolean);
+
+  return {
+    items: orderItems,
+    total: cartTotal(),
+    nom: form.querySelector("#ckNom")?.value.trim(),
+    tel: form.querySelector("#ckTel")?.value.trim(),
+    wilaya: form.querySelector("#ckWilaya")?.value.trim(),
+    commune: form.querySelector("#ckCommune")?.value.trim(),
+    adresse: form.querySelector("#ckAdresse")?.value.trim()
+  };
 }
 
-function submitOrderWhatsApp(e){
+async function submitOrder(e){
   e.preventDefault();
   const form = document.getElementById("checkoutForm");
   if(form && !form.reportValidity()) return;
@@ -196,9 +189,45 @@ function submitOrderWhatsApp(e){
     alert("Ton panier est vide. Ajoute un article avant de commander.");
     return;
   }
-  const message = buildOrderMessage();
-  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-  window.open(url, "_blank");
+
+  const submitBtn = form.querySelector("button[type=submit]");
+  const originalLabel = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Envoi de la commande...";
+
+  try{
+    const payload = buildOrderPayload();
+    const res = await fetch("/api/send-order", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    if(!res.ok){
+      throw new Error("Échec de l'envoi");
+    }
+
+    // Succès : on vide le panier et on affiche la confirmation
+    writeCart([]);
+    renderCartPage();
+    const wrap = document.querySelector(".cart-page");
+    if(wrap){
+      wrap.innerHTML = `
+        <div style="grid-column:1/-1;text-align:center;padding:70px 20px;">
+          <h2 style="margin-bottom:14px;">Commande reçue ✅</h2>
+          <p style="color:var(--pierre);max-width:46ch;margin:0 auto 26px;">
+            Merci ${payload.nom} ! Ta commande a bien été transmise à Maison DZ.
+            On te contacte au ${payload.tel} pour confirmer la livraison.
+            Paiement à la livraison (Cash).
+          </p>
+          <a href="catalogue.html" class="btn btn--carmin">Continuer les achats</a>
+        </div>`;
+    }
+  }catch(err){
+    alert("Un souci est survenu pendant l'envoi de ta commande. Réessaie, ou contacte-nous directement sur Instagram.");
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalLabel;
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -211,5 +240,5 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-open-cart]").forEach(btn => {
     btn.addEventListener("click", (e) => { e.preventDefault(); renderCartDrawer(); openCartDrawer(); });
   });
-  document.getElementById("checkoutForm")?.addEventListener("submit", submitOrderWhatsApp);
+  document.getElementById("checkoutForm")?.addEventListener("submit", submitOrder);
 });
