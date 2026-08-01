@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panier — Maison DZ</title>
+<link rel="icon" href="https://maisondz.net/cdn/shop/files/logo.png?v=1776026106">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="promo-bar">Tous nos articles à <s>4200 DA</s> passent à <strong>3900 DA</strong> — profitez-en !</div>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">MAISON<span>DZ</span></a>
+    <nav class="main-nav">
+      <a href="index.html">Accueil</a>
+      <a href="catalogue.html">Catalogue</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <a href="contact.html" class="icon-btn" aria-label="Contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+      </a>
+      <button class="icon-btn" data-open-cart aria-label="Panier">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6 4.5 2H2"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg>
+        <span class="cart-count">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div style="padding:44px 0 0;">
+    <span class="eyebrow">Étape 1 sur 1</span>
+    <h1 style="font-size:clamp(2rem,4vw,2.8rem);margin-top:8px;">Votre panier</h1>
+  </div>
+
+  <div class="cart-page">
+    <div>
+      <div id="cartPageItems"></div>
+    </div>
+
+    <div class="summary-box" id="cartSummary">
+      <h3>Récapitulatif</h3>
+      <div class="summary-row"><span>Sous-total</span><span id="cartPageTotal">DA 0.00</span></div>
+      <div class="summary-row"><span>Livraison</span><span id="cartShippingCost">Choisissez une wilaya</span></div>
+      <div class="summary-row total"><span>Total estimé</span><span id="cartPageTotal2">DA 0.00</span></div>
+
+      <form id="checkoutForm" style="margin-top:22px;">
+        <div class="field">
+          <label for="ckNom">Nom complet</label>
+          <input type="text" id="ckNom" required>
+        </div>
+        <div class="field">
+          <label for="ckTel">Téléphone</label>
+          <input type="tel" id="ckTel" placeholder="05XX XX XX XX" required>
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label for="ckWilaya">Wilaya</label>
+            <select id="ckWilaya" required>
+              <option value="" disabled selected>Choisir une wilaya</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="ckCommune">Commune</label>
+            <select id="ckCommune" required disabled>
+              <option value="" disabled selected>Choisir une commune</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="ckLivraisonType">Type de livraison</label>
+          <select id="ckLivraisonType">
+            <option value="domicile">Livraison à domicile</option>
+            <option value="stopdesk">Retrait en Stop Desk (moins cher)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="ckAdresse">Adresse complète</label>
+          <textarea id="ckAdresse" required></textarea>
+        </div>
+        <input type="hidden" id="ckLivraisonPrix" value="">
+        <button type="submit" class="btn btn--carmin btn--block" id="checkoutSubmitBtn" disabled>Confirmer ma commande</button>
+        <p id="ckLivraisonHint" style="font-size:0.78rem;color:var(--pierre);margin-top:12px;">Sélectionnez votre wilaya pour voir le tarif de livraison.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">MAISON DZ</div>
+        <p>Vêtements streetwear authentiques d'Algérie.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/maisondz.off" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@maisondz.off" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 3c.4 2.2 1.9 3.6 4 3.9v2.6c-1.5 0-2.9-.4-4-1.2v6.1a5.2 5.2 0 1 1-4.4-5.1v2.7a2.5 2.5 0 1 0 1.9 2.4V3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h5>Boutique</h5>
+        <a href="index.html">Accueil</a>
+        <a href="catalogue.html">Catalogue</a>
+        <a href="panier.html">Panier</a>
+      </div>
+      <div>
+        <h5>Assistance</h5>
+        <a href="contact.html">Contact</a>
+        <a href="index.html#faq">Livraison & retours</a>
+        <a href="politique-confidentialite.html">Confidentialité</a>
+      </div>
+      <div>
+        <h5>Nous écrire</h5>
+        <p>contact@maisondz.net</p>
+        <p>Livraison dans les 58 wilayas</p>
+        <p>Paiement à la livraison</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span class="js-year">2026</span> Maison DZ</span>
+      <span>Conditions générales et politiques</span>
+    </div>
+  </div>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Panier">
+  <div class="cart-drawer__head">
+    <h3>Votre panier</h3>
+    <button class="cart-drawer__close" id="cartDrawerClose" aria-label="Fermer">×</button>
+  </div>
+  <div class="cart-drawer__items" id="cartDrawerItems"></div>
+  <div class="cart-drawer__foot" id="cartDrawerFoot">
+    <div class="cart-subtotal"><span>Sous-total</span><span id="cartDrawerSubtotal">DA 0.00</span></div>
+    <a href="panier.html" class="btn btn--carmin btn--block">Voir le panier</a>
+  </div>
+</aside>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+
+<!-- ==========================================================================
+     Données wilayas + tarifs de livraison intégrées directement ici
+     (plus de dépendance à un fichier js/wilayas.js séparé — évite les
+     problèmes de chemin / cache / déploiement).
+     ========================================================================== -->
+<script>
+const WILAYAS = [{"code":"01","name":"Adrar","communes":["Adrar","Akabli","Aoulef","Bouda","Fenoughil","In Zghmir","Ouled Ahmed Timmi","Reggane","Sali","Sebaa","Tamantit","Tamest","Timekten","Tit","Tsabit","Zaouiet Kounta"]},{"code":"02","name":"Chlef","communes":["Abou El Hassane","Ain Merane","Benairia","Beni  Bouattab","Beni Haoua","Beni Rached","Boukadir","Bouzeghaia","Breira","Chettia","Chlef","Dahra","El Hadjadj","El Karimia","El Marsa","Harchoun","Herenfa","Labiod Medjadja","Moussadek","Oued Fodda","Oued Goussine","Oued Sly","Ouled Abbes","Ouled Ben Abdelkader","Ouled Fares","Oum Drou","Sendjas","Sidi Abderrahmane","Sidi Akkacha","Sobha","Tadjena","Talassa","Taougrit","Tenes","Zeboudja"]},{"code":"03","name":"Laghouat","communes":["Aflou","Ain Madhi","Ain Sidi Ali","Benacer Benchohra","Brida","El Assafia","El Beidha","El Ghicha","El Haouaita","Gueltat Sidi Saad","Hadj Mechri","Hassi Delaa","Hassi R'mel","Kheneg","Ksar El Hirane","Laghouat","Oued M'zi","Oued Morra","Sebgag","Sidi Bouzid","Sidi Makhlouf","Tadjemout","Tadjrouna","Taouiala"]},{"code":"04","name":"Oum El Bouaghi","communes":["Ain Babouche","Ain Beida","Ain Diss","Ain Fekroun","Ain Kercha","Ain M'lila","Ain Zitoun","Behir Chergui","Berriche","Bir Chouhada","Dhalaa","El Amiria","El Belala","El Djazia","El Fedjoudj Boughrara Sa","El Harmilia","Fkirina","Hanchir Toumghani","Ksar Sbahi","Meskiana","Oued Nini","Ouled Gacem","Ouled Hamla","Ouled Zouai","Oum El Bouaghi","Rahia","Sigus","Souk Naamane","Zorg"]},{"code":"05","name":"Batna","communes":["Ain Djasser","Ain Touta","Ain Yagout","Arris","Azil Abedelkader","Barika","Batna","Beni Foudhala El Hakania","Bitam","Boulhilat","Boumagueur","Boumia","Bouzina","Chemora","Chir","Djerma","Djezzar","El Hassi","El Madher","Fesdis","Foum Toub","Ghassira","Gosbat","Guigba","Hidoussa","Ichemoul","Inoughissen","Kimmel","Ksar Bellezma","Larbaa","Lazrou","Lemcene","M Doukal","Maafa","Menaa","Merouana","N Gaous","Oued Chaaba","Oued El Ma","Oued Taga","Ouled Ammar","Ouled Aouf","Ouled Fadel","Ouled Sellem","Ouled Si Slimane","Ouyoun El Assafir","Rahbat","Ras El Aioun","Sefiane","Seggana","Seriana","T Kout","Talkhamt","Taxlent","Tazoult","Teniet El Abed","Tighanimine","Tigharghar","Tilatou","Timgad","Zanet El Beida"]},{"code":"06","name":"Béjaïa","communes":["Adekar","Ait R'zine","Ait-Smail","Akbou","Akfadou","Amalou","Amizour","Aokas","Barbacha","Bejaia","Beni Djellil","Beni K'sila","Beni-Mallikeche","Benimaouche","Boudjellil","Bouhamza","Boukhelifa","Chellata","Chemini","Darguina","Dra El Caid","El Kseur","Fenaia Il Maten","Feraoun","Ighil-Ali","Ighram","Kendira","Kherrata","Leflaye","M'cisna","Melbou","Oued Ghir","Ouzellaguen","Seddouk","Sidi Ayad","Sidi-Aich","Smaoun","Souk El Tenine","Souk Oufella","Tala Hamza","Tamokra","Tamridjet","Taourit Ighil","Taskriout","Tazmalt","Tibane","Tichy","Tifra","Timezrit","Tinebdar","Tizi-N'berber","Toudja"]},{"code":"07","name":"Biskra","communes":["Ain Naga","Ain Zaatout","Biskra","Bordj Ben Azzouz","Bouchakroun","Branis","Chetma","Djemorah","El Feidh","El Ghrous","El Hadjab","El Haouch","El Kantara","El Outaya","Foughala","Khenguet Sidi Nadji","Lichana","Lioua","M'chouneche","M'lili","Mekhadma","Meziraa","Oumache","Ourlal","Sidi Okba","Tolga","Zeribet El Oued"]},{"code":"08","name":"Béchar","communes":["Abadla","Bechar","Beni-Ounif","Boukais","Erg-Ferradj","Kenadsa","Lahmar","Machraa-Houari-Boumediene","Meridja","Mogheul","Tabelbala","Taghit"]},{"code":"09","name":"Blida","communes":["Ain Romana","Beni Mered","Beni-Tamou","Benkhelil","Blida","Bouarfa","Boufarik","Bougara","Bouinan","Chebli","Chiffa","Chrea","Djebabra","El-Affroun","Guerrouaou","Hammam Elouane","Larbaa","Meftah","Mouzaia","Oued  Djer","Oued El Alleug","Ouled Slama","Ouled Yaich","Souhane","Soumaa"]},{"code":"10","name":"Bouira","communes":["Aghbalou","Ahl El Ksar","Ain El Hadjar","Ain Laloui","Ain Turk","Ain-Bessem","Ait Laaziz","Aomar","Ath Mansour","Bechloul","Bir Ghbalou","Bordj Okhriss","Bouderbala","Bouira","Boukram","Chorfa","Dechmia","Dirah","Djebahia","El Adjiba","El Asnam","El Hachimia","El Khabouzia","El-Hakimia","El-Mokrani","Guerrouma","Hadjera Zerga","Haizer","Hanif","Kadiria","Lakhdaria","M Chedallah","Maala","Maamora","Mezdour","Oued El Berdi","Ouled Rached","Raouraoua","Ridane","Saharidj","Souk El Khemis","Sour El Ghozlane","Taghzout","Taguedite","Z'barbar (El Isseri )"]},{"code":"11","name":"Tamanrasset","communes":["Abelsa","Ain Amguel","Idles","Tamanrasset","Tazrouk"]},{"code":"12","name":"Tébessa","communes":["Ain Zerga","Bedjene","Bekkaria","Bir Dheheb","Bir Mokkadem","Bir-El-Ater","Boukhadra","Boulhaf Dyr","Cheria","El Kouif","El Malabiod","El Meridj","El Mezeraa","El Ogla","El Ogla El Malha","El-Aouinet","El-Houidjbet","Ferkane","Guorriguer","Hammamet","Morsott","Negrine","Ouenza","Oum Ali","Saf Saf El Ouesra","Stah Guentis","Tebessa","Telidjen"]},{"code":"13","name":"Tlemcen","communes":["Ain Fetah","Ain Fezza","Ain Ghoraba","Ain Kebira","Ain Nehala","Ain Tellout","Ain Youcef","Amieur","Azail","Bab El Assa","Beni Bahdel","Beni Boussaid","Beni Khellad","Beni Mester","Beni Ouarsous","Beni Smiel","Beni Snous","Bensekrane","Bouhlou","Bouihi","Chetouane","Dar Yaghmoracen","Djebala","El Aricha","El Fehoul","El Gor","Fellaoucene","Ghazaouet","Hammam Boughrara","Hennaya","Honnaine","M'sirda Fouaga","Maghnia","Mansourah","Marsa Ben M'hidi","Nedroma","Oued Lakhdar","Ouled Mimoun","Ouled Riyah","Remchi","Sabra","Sebbaa Chioukh","Sebdou","Sidi Abdelli","Sidi Djillali","Sidi Medjahed","Souahlia","Souani","Souk Tleta","Terny Beni Hediel","Tianet","Tlemcen","Zenata"]},{"code":"14","name":"Tiaret","communes":["Ain Bouchekif","Ain Deheb","Ain Dzarit","Ain El Hadid","Ain Kermes","Bougara","Chehaima","Dahmouni","Djebilet Rosfa","Djillali Ben Amar","Faidja","Frenda","Guertoufa","Hamadia","Ksar Chellala","Madna","Mahdia","Mechraa Safa","Medrissa","Medroussa","Meghila","Mellakou","Nadorah","Naima","Oued Lilli","Rahouia","Rechaiga","Sebaine","Sebt","Serghine","Si Abdelghani","Sidi Abderrahmane","Sidi Ali Mellal","Sidi Bakhti","Sidi Hosni","Sougueur","Tagdempt","Takhemaret","Tiaret","Tidda","Tousnina","Zmalet El Emir Abdelkade"]},{"code":"15","name":"Tizi Ouzou","communes":["Abi-Youcef","Aghribs","Agouni-Gueghrane","Ain-El-Hammam","Ain-Zaouia","Ait Aggouacha","Ait Bouaddou","Ait Boumahdi","Ait Khellili","Ait Yahia Moussa","Ait-Aissa-Mimoun","Ait-Chafaa","Ait-Mahmoud","Ait-Oumalou","Ait-Toudert","Ait-Yahia","Akbil","Akerrou","Assi-Youcef","Azazga","Azeffoun","Beni Zmenzer","Beni-Aissi","Beni-Douala","Beni-Yenni","Beni-Zikki","Boghni","Boudjima","Bounouh","Bouzeguene","Draa-Ben-Khedda","Draa-El-Mizan","Freha","Frikat","Iboudrarene","Idjeur","Iferhounene","Ifigha","Iflissen","Illilten","Illoula Oumalou","Imsouhal","Irdjen","Larbaa Nath Irathen","M'kira","Maatkas","Makouda","Mechtras","Mekla","Mizrana","Ouacif","Ouadhias","Ouaguenoun","Sidi Namane","Souama","Souk-El-Tenine","Tadmait","Tigzirt","Timizart","Tirmitine","Tizi N'tleta","Tizi-Gheniff","Tizi-Ouzou","Tizi-Rached","Yakourene","Yatafene","Zekri"]},{"code":"16","name":"Alger","communes":["Ain Benian","Ain Taya","Alger Centre","Bab El Oued","Bab Ezzouar","Baba Hassen","Bachedjerah","Baraki","Ben Aknoun","Beni Messous","Bir Mourad Rais","Bir Touta","Birkhadem","Bologhine Ibnou Ziri","Bordj El Bahri","Bordj El Kiffan","Bourouba","Bouzareah","Casbah","Cheraga","Dar El Beida","Dely Ibrahim","Djasr Kasentina","Douira","Draria","El Achour","El Biar","El Harrach","El Madania","El Magharia","El Marsa","El Mouradia","Hammamet","Herraoua","Hussein Dey","Hydra","Khraissia","Kouba","Les Eucalyptus","Maalma","Mohamed Belouzdad","Mohammadia","Oued Koriche","Oued Smar","Ouled Chebel","Ouled Fayet","Rahmania","Rais Hamidou","Reghaia","Rouiba","Sehaoula","Sidi M'hamed","Sidi Moussa","Souidania","Staoueli","Tessala El Merdja","Zeralda"]},{"code":"17","name":"Djelfa","communes":["Ain Chouhada","Ain El Ibel","Ain Fekka","Ain Maabed","Ain Oussera","Amourah","Benhar","Benyagoub","Birine","Bouira Lahdab","Charef","Dar Chioukh","Deldoul","Djelfa","Douis","El Guedid","El Idrissia","El Khemis","Faidh El Botma","Guernini","Guettara","Had Sahary","Hassi Bahbah","Hassi El Euch","Hassi Fedoul","M'liliha","Messaad","Moudjebara","Oum Laadham","Sed Rahal","Selmana","Sidi Baizid","Sidi Laadjel","Taadmit","Zaafrane","Zaccar"]},{"code":"18","name":"Jijel","communes":["Bordj T'har","Boudria Beniyadjis","Bouraoui Belhadef","Boussif Ouled Askeur","Chahna","Chekfa","Djemaa Beni Habibi","Djimla","El Ancer","El Aouana","El Kennar Nouchfi","El Milia","Emir Abdelkader","Erraguene Souissi","Ghebala","Jijel","Kaous","Khiri Oued Adjoul","Oudjana","Ouled Rabah","Ouled Yahia Khadrouch","Selma Benziada","Settara","Sidi Abdelaziz","Sidi Marouf","Taher","Texenna","Ziama Mansouriah"]},{"code":"19","name":"Sétif","communes":["Ain Abessa","Ain Arnat","Ain Azel","Ain El Kebira","Ain Lahdjar","Ain Oulmene","Ain-Legradj","Ain-Roua","Ain-Sebt","Ait Naoual Mezada","Ait-Tizi","Amoucha","Babor","Bazer-Sakra","Beidha Bordj","Bellaa","Beni Chebana","Beni Fouda","Beni Ourtilane","Beni Oussine","Beni-Aziz","Beni-Mouhli","Bir Haddada","Bir-El-Arch","Bouandas","Bougaa","Bousselam","Boutaleb","Dehamcha","Djemila","Draa-Kebila","El Eulma","El Ouricia","El-Ouldja","Guellal","Guelta Zerka","Guenzet","Guidjel","Hamam Soukhna","Hamma","Hammam Guergour","Harbil","Kasr El Abtal","Maaouia","Maouaklane","Mezloug","Oued El Bared","Ouled Addouane","Ouled Sabor","Ouled Si Ahmed","Ouled Tebben","Rosfa","Salah Bey","Serdj-El-Ghoul","Setif","Tachouda","Tala-Ifacene","Taya","Tella","Tizi N'bechar"]},{"code":"20","name":"Saïda","communes":["Ain El Hadjar","Ain Sekhouna","Ain Soltane","Doui Thabet","El Hassasna","Hounet","Maamora","Moulay Larbi","Ouled Brahim","Ouled Khaled","Saida","Sidi Ahmed","Sidi Amar","Sidi Boubekeur","Tircine","Youb"]},{"code":"21","name":"Skikda","communes":["Ain Bouziane","Ain Charchar","Ain Kechra","Ain Zouit","Azzaba","Bekkouche Lakhdar","Ben Azzouz","Beni Bechir","Beni Oulbane","Beni Zid","Bin El Ouiden","Bouchetata","Cheraia","Collo","Djendel Saadi Mohamed","El Arrouch","El Ghedir","El Hadaiek","El Marsa","Emjez Edchich","Es Sebt","Filfila","Hammadi Krouma","Kanoua","Kerkara","Khenag Maoune","Oued Zhour","Ouldja Boulbalout","Ouled Attia","Ouled Habbaba","Oum Toub","Ramdane Djamel","Salah Bouchaour","Sidi Mezghiche","Skikda","Tamalous","Zerdezas","Zitouna"]},{"code":"22","name":"Sidi Bel Abbès","communes":["Ain El Berd","Ain Kada","Ain Thrid","Ain Tindamine","Ain- Adden","Amarnas","Bedrabine El Mokrani","Belarbi","Ben Badis","Benachiba Chelia","Bir El Hammam","Boudjebaa El Bordj","Boukhanefis","Chetouane Belaila","Dhaya","El Hacaiba","Hassi Dahou","Hassi Zahana","Lamtar","M'cid","Makedra","Marhoum","Merine","Mezaourou","Mostefa  Ben Brahim","Moulay Slissen","Oued Sebaa","Oued Sefioun","Oued Taourira","Ras El Ma","Redjem Demouche","Sehala Thaoura","Sfisef","Sidi Ali Benyoub","Sidi Ali Boussidi","Sidi Bel-Abbes","Sidi Brahim","Sidi Chaib","Sidi Dahou Zairs","Sidi Hamadouche","Sidi Khaled","Sidi Lahcene","Sidi Yacoub","Tabia","Taoudmout","Tefessour","Teghalimet","Telagh","Tenira","Tessala","Tilmouni","Zerouala"]},{"code":"23","name":"Annaba","communes":["Ain El Berda","Annaba","Berrahal","Chetaibi","Cheurfa","El Bouni","El Eulma","El Hadjar","Oued El Aneb","Seraidi","Sidi Amar","Treat"]},{"code":"24","name":"Guelma","communes":["Ain Ben Beida","Ain Larbi","Ain Makhlouf","Ain Regada","Ain Sandel","Belkheir","Bendjarah","Beni Mezline","Bordj Sabath","Bou Hachana","Bou Hamdane","Bouati Mahmoud","Bouchegouf","Boumahra Ahmed","Dahouara","Djeballah Khemissi","El Fedjoudj","Guelaat Bou Sbaa","Guelma","Hammam Debagh","Hammam N'bail","Heliopolis","Houari Boumedienne","Khezaras","Medjez Amar","Medjez Sfa","Nechmaya","Oued Cheham","Oued Ferragha","Oued Zenati","Ras El Agba","Roknia","Sellaoua Announa","Tamlouka"]},{"code":"25","name":"Constantine","communes":["Ain Abid","Ain Smara","Ben Badis","Beni Hamidane","Constantine","Didouche Mourad","El Khroub","Hamma Bouziane","Ibn Ziad","Messaoud Boudjeriou","Ouled Rahmoun","Zighoud Youcef"]},{"code":"26","name":"Médéa","communes":["Ain Boucif","Ain Ouksir","Aissaouia","Aziz","Baata","Ben Chicao","Beni Slimane","Berrouaghia","Bir Ben Laabed","Boghar","Bouaiche","Bouaichoune","Bouchrahil","Boughzoul","Bouskene","Chabounia","Chelalet El Adhaoura","Cheniguel","Derrag","Djouab","Draa Esmar","El Azizia","El Guelbelkebir","El Hamdania","El Haoudane","El Omaria","El Ouinet","Hannacha","Kef Lakhdar","Khams Djouamaa","Ksar El Boukhari","M'fatha","Maghraoua","Medea","Medjebar","Mezerana","Mihoub","Ouamri","Oued Harbil","Ouled Antar","Ouled Bouachra","Ouled Brahim","Ouled Deid","Ouled Emaaraf","Ouled Hellal","Oum El Djellil","Ouzera","Rebaia","Saneg","Sedraya","Seghouane","Si Mahdjoub","Sidi Demed","Sidi Naamane","Sidi Rabie","Sidi Zahar","Sidi Ziane","Souagui","Tablat","Tafraout","Tamesguida","Tizi Mahdi","Tletat Ed Douair","Zoubiria"]},{"code":"27","name":"Mostaganem","communes":["Achaacha","Ain-Boudinar","Ain-Nouissy","Ain-Sidi Cherif","Ain-Tedles","Benabdelmalek Ramdane","Bouguirat","Fornaka","Hadjadj","Hassi Mameche","Hassiane","Khadra","Kheir-Eddine","Mansourah","Mazagran","Mesra","Mostaganem","Nekmaria","Oued El Kheir","Ouled Boughalem","Ouled-Maalah","Safsaf","Sayada","Sidi Ali","Sidi Belaattar","Sidi-Lakhdar","Sirat","Souaflia","Sour","Stidia","Tazgait","Touahria"]},{"code":"28","name":"M'Sila","communes":["Ain El Hadjel","Ain El Melh","Ain Fares","Ain Khadra","Ain Rich","Belaiba","Ben Srour","Beni Ilmane","Benzouh","Berhoum","Bir Foda","Bou Saada","Bouti Sayeh","Chellal","Dehahna","Djebel Messaad","El Hamel","El Houamed","Hammam Dalaa","Khettouti Sed-El-Jir","Khoubana","M'cif","M'sila","M'tarfa","Maadid","Maarif","Magra","Medjedel","Menaa","Mohamed Boudiaf","Ouanougha","Ouled Addi Guebala","Ouled Derradj","Ouled Madhi","Ouled Mansour","Ouled Sidi Brahim","Ouled Slimane","Oulteme","Sidi Aissa","Sidi Ameur","Sidi Hadjeres","Sidi M'hamed","Slim","Souamaa","Tamsa","Tarmount","Zarzour"]},{"code":"29","name":"Mascara","communes":["Ain Fares","Ain Fekan","Ain Ferah","Ain Frass","Alaimia","Aouf","Benian","Bou Henni","Bouhanifia","Chorfa","El Bordj","El Gaada","El Ghomri","El Gueitena","El Hachem","El Keurt","El Mamounia","El Menaouer","Ferraguig","Froha","Gharrous","Ghriss","Guerdjoum","Hacine","Khalouia","Makhda","Maoussa","Mascara","Matemore","Mocta-Douz","Mohammadia","Nesmot","Oggaz","Oued El Abtal","Oued Taria","Ras El Ain Amirouche","Sedjerara","Sehailia","Sidi Abdeldjebar","Sidi Abdelmoumene","Sidi Boussaid","Sidi Kada","Sig","Tighennif","Tizi","Zahana","Zelamta"]},{"code":"30","name":"Ouargla","communes":["Ain Beida","El Borma","Hassi Ben Abdellah","Hassi Messaoud","N'goussa","Ouargla","Rouissat","Sidi Khouiled"]},{"code":"31","name":"Oran","communes":["Ain Biya","Ain Kerma","Ain Turk","Arzew","Ben Freha","Bethioua","Bir El Djir","Boufatis","Bousfer","Boutlelis","El Ancor","El Braya","El Kerma","Es Senia","Gdyel","Hassi Ben Okba","Hassi Bounif","Hassi Mefsoukh","Marsat El Hadjadj","Mers El Kebir","Messerghin","Oran","Oued Tlelat","Sidi Ben Yebka","Sidi Chami","Tafraoui"]},{"code":"32","name":"El Bayadh","communes":["Ain El Orak","Arbaouat","Boualem","Bougtoub","Boussemghoun","Brezina","Cheguig","Chellala","El Bayadh","El Bnoud","El Kheiter","El Mehara","Ghassoul","Kef El Ahmar","Krakda","Labiodh Sidi Cheikh","Rogassa","Sidi Ameur","Sidi Slimane","Sidi Tiffour","Stitten","Tousmouline"]},{"code":"33","name":"Illizi","communes":["Bordj Omar Driss","Debdeb","Illizi","In Amenas"]},{"code":"34","name":"Bordj Bou Arreridj","communes":["Ain Taghrout","Ain Tesra","B. B. Arreridj","Belimour","Ben Daoud","Bir Kasdali","Bordj Ghedir","Bordj Zemmoura","Colla","Djaafra","El Achir","El Annasseur","El Euch","El M'hir","El Main","Elhammadia","Ghailasa","Haraza","Hasnaoua","Khelil","Ksour","Mansoura","Medjana","Ouled Brahem","Ouled Dahmane","Ouled Sidi-Brahim","Rabta","Ras El Oued","Sidi-Embarek","Taglait","Tassamert","Tefreg","Teniet En Nasr","Tixter"]},{"code":"35","name":"Boumerdès","communes":["Afir","Ammal","Baghlia","Ben Choud","Beni Amrane","Bordj Menaiel","Boudouaou","Boudouaou El Bahri","Boumerdes","Bouzegza Keddara","Chabet El Ameur","Corso","Dellys","Djinet","El Kharrouba","Hammedi","Isser","Khemis El Khechna","Larbatache","Leghata","Naciria","Ouled Aissa","Ouled Hedadj","Ouled Moussa","Si Mustapha","Sidi Daoud","Souk El Had","Taourga","Thenia","Tidjelabine","Timezrit","Zemmouri"]},{"code":"36","name":"El Tarf","communes":["Ain El Assel","Ain Kerma","Asfour","Ben M Hidi","Berrihane","Besbes","Bougous","Bouhadjar","Bouteldja","Chebaita Mokhtar","Chefia","Chihani","Drean","Echatt","El Aioun","El Kala","El Tarf","Hammam Beni Salah","Lac Des Oiseaux","Oued Zitoun","Raml Souk","Souarekh","Zerizer","Zitouna"]},{"code":"37","name":"Tindouf","communes":["Oum El Assel","Tindouf"]},{"code":"38","name":"Tissemsilt","communes":["Ammari","Beni Chaib","Beni Lahcene","Bordj Bounaama","Bordj El Emir Abdelkader","Boucaid","Khemisti","Larbaa","Lardjem","Layoune","Lazharia","Maacem","Melaab","Ouled Bessam","Sidi Abed","Sidi Boutouchent","Sidi Lantri","Sidi Slimane","Tamellahet","Theniet El Had","Tissemsilt","Youssoufia"]},{"code":"39","name":"El Oued","communes":["Bayadha","Ben Guecha","Debila","Douar El Maa","El Ogla","El-Oued","Guemar","Hamraia","Hassani Abdelkrim","Hassi Khalifa","Kouinine","Magrane","Mih Ouansa","Nakhla","Oued El Alenda","Ourmes","Reguiba","Robbah","Sidi Aoun","Taghzout","Taleb Larbi","Trifaoui"]},{"code":"40","name":"Khenchela","communes":["Ain Touila","Babar","Baghai","Bouhmama","Chechar","Chelia","Djellal","El Hamma","El Mahmal","El Oueldja","Ensigha","Kais","Khenchela","Khirane","M'sara","M'toussa","Ouled Rechache","Remila","Tamza","Taouzianat","Yabous"]},{"code":"41","name":"Souk Ahras","communes":["Ain Soltane","Ain Zana","Bir Bouhouche","Drea","Haddada","Hanencha","Khedara","Khemissa","M'daourouche","Machroha","Merahna","Oued Kebrit","Ouillen","Ouled Driss","Ouled Moumen","Oum El Adhaim","Ragouba","Safel El Ouiden","Sedrata","Sidi Fredj","Souk Ahras","Taoura","Terraguelt","Tiffech","Zaarouria","Zouabi"]},{"code":"42","name":"Tipaza","communes":["Aghbal","Ahmer El Ain","Ain Tagourait","Attatba","Beni Mileuk","Bou Haroun","Bou Ismail","Bourkika","Chaiba","Cherchell","Damous","Douaouda","Fouka","Gouraya","Hadjout","Hadjret Ennous","Khemisti","Kolea","Larhat","Menaceur","Merad","Messelmoun","Nador","Sidi Ghiles","Sidi Rached","Sidi Semiane","Sidi-Amar","Tipaza"]},{"code":"43","name":"Mila","communes":["Ahmed Rachedi","Ain Beida Harriche","Ain Mellouk","Ain Tine","Amira Arres","Benyahia Abderrahmane","Bouhatem","Chelghoum Laid","Chigara","Derrahi Bousselah","El Ayadi Barbes","El Mechira","Ferdjioua","Grarem Gouga","Hamala","Mila","Minar Zarza","Oued Athmenia","Oued Endja","Oued Seguen","Ouled Khalouf","Rouached","Sidi Khelifa","Sidi Merouane","Tadjenanet","Tassadane Haddada","Tassala Lematai","Teleghma","Terrai Bainen","Tiberguent","Yahia Beniguecha","Zeghaia"]},{"code":"44","name":"Aïn Defla","communes":["Ain-Benian","Ain-Bouyahia","Ain-Defla","Ain-Lechiakh","Ain-Soltane","Ain-Torki","Arib","Bathia","Belaas","Ben Allal","Bir-Ould-Khelifa","Birbouche","Bordj-Emir-Khaled","Boumedfaa","Bourached","Djelida","Djemaa Ouled Cheikh","Djendel","El-Abadia","El-Amra","El-Attaf","El-Maine","Hammam-Righa","Hassania","Hoceinia","Khemis-Miliana","Mekhatria","Miliana","Oued Chorfa","Oued Djemaa","Rouina","Sidi-Lakhdar","Tacheta Zegagha","Tarik-Ibn-Ziad","Tiberkanine","Zeddine"]},{"code":"45","name":"Naâma","communes":["Ain Ben Khelil","Ain Sefra","Asla","Djenienne Bourezg","El Biodh","Kasdir","Makmen Ben Amar","Mecheria","Moghrar","Naama","Sfissifa","Tiout"]},{"code":"46","name":"Aïn Témouchent","communes":["Aghlal","Ain El Arbaa","Ain Kihal","Ain Temouchent","Ain Tolba","Aoubellil","Beni Saf","Bouzedjar","Chaabat El Ham","Chentouf","El Amria","El Maleh","El Messaid","Emir Abdelkader","Hammam Bou Hadjar","Hassasna","Hassi El Ghella","Oued Berkeche","Oued Sebbah","Ouled Boudjemaa","Ouled Kihal","Oulhaca El Gheraba","Sidi Ben Adda","Sidi Boumediene","Sidi Ouriache","Sidi Safi","Tamzoura","Terga"]},{"code":"47","name":"Ghardaïa","communes":["Berriane","Bounoura","Dhayet Bendhahoua","El Atteuf","El Guerrara","Ghardaia","Mansoura","Metlili","Sebseb","Zelfana"]},{"code":"48","name":"Relizane","communes":["Ain Rahma","Ain-Tarek","Ammi Moussa","Belaassel Bouzagza","Bendaoud","Beni Dergoun","Beni Zentis","Dar Ben Abdelah","Djidiouia","El H'madna","El Hassi","El Ouldja","El-Guettar","El-Matmar","Had Echkalla","Hamri","Kalaa","Lahlef","Mazouna","Mediouna","Mendes","Merdja Sidi Abed","Ouarizane","Oued El Djemaa","Oued Essalem","Oued-Rhiou","Ouled Aiche","Ouled Sidi Mihoub","Ramka","Relizane","Sidi Khettab","Sidi Lazreg","Sidi M'hamed Benali","Sidi M'hamed Benaouda","Sidi Saada","Souk El Had","Yellel","Zemmoura"]},{"code":"49","name":"Timimoun","communes":["Aougrout","Charouine","Deldoul","Ksar Kaddour","Metarfa","Ouled Aissa","Ouled Said","Talmine","Timimoun","Tinerkouk"]},{"code":"50","name":"Bordj Badji Mokhtar","communes":["Bordj Badji Mokhtar","Timiaouine"]},{"code":"51","name":"Ouled Djellal","communes":["Besbes","Chaiba","Doucen","Ouled Djellal","Ras El Miad","Sidi Khaled"]},{"code":"52","name":"Béni Abbès","communes":["Beni-Abbes","Beni-Ikhlef","El Ouata","Igli","Kerzaz","Ksabi","Ouled-Khodeir","Tamtert","Timoudi"]},{"code":"53","name":"In Salah","communes":["Ain Salah","Foggaret Ezzoua","Inghar"]},{"code":"54","name":"In Guezzam","communes":["Ain Guezzam","Tin Zouatine"]},{"code":"55","name":"Touggourt","communes":["Benaceur","Blidet Amor","El Alia","El-Hadjira","M'naguer","Megarine","Nezla","Sidi Slimane","Taibet","Tebesbest","Temacine","Touggourt","Zaouia El Abidia"]},{"code":"56","name":"Djanet","communes":["Bordj El Haouass","Djanet"]},{"code":"57","name":"El Meghaier","communes":["Djamaa","El-M'ghaier","M'rara","Oum Touyour","Sidi Amrane","Sidi Khelil","Still","Tenedla"]},{"code":"58","name":"El Menia","communes":["El Meniaa","Hassi Fehal","Hassi Gara"]}];
+
+const DELIVERY_RATES = {
+  "01": { domicile: 1400, stopdesk: 1100 },
+  "02": { domicile: 850,  stopdesk: 450  },
+  "03": { domicile: 1000, stopdesk: 700  },
+  "04": { domicile: 850,  stopdesk: 500  },
+  "05": { domicile: 850,  stopdesk: 500  },
+  "06": { domicile: 850,  stopdesk: 500  },
+  "07": { domicile: 950,  stopdesk: 600  },
+  "08": { domicile: 1400, stopdesk: 1100 },
+  "09": { domicile: 700,  stopdesk: 450  },
+  "10": { domicile: 850,  stopdesk: 450  },
+  "11": { domicile: 1800, stopdesk: 1400 },
+  "12": { domicile: 950,  stopdesk: 600  },
+  "13": { domicile: 850,  stopdesk: 500  },
+  "14": { domicile: 850,  stopdesk: 500  },
+  "15": { domicile: 850,  stopdesk: 450  },
+  "16": { domicile: 500,  stopdesk: 400  },
+  "17": { domicile: 900,  stopdesk: 600  },
+  "18": { domicile: 850,  stopdesk: 500  },
+  "19": { domicile: 850,  stopdesk: 450  },
+  "20": { domicile: 900,  stopdesk: 600  },
+  "21": { domicile: 850,  stopdesk: 500  },
+  "22": { domicile: 850,  stopdesk: 500  },
+  "23": { domicile: 850,  stopdesk: 500  },
+  "24": { domicile: 900,  stopdesk: 600  },
+  "25": { domicile: 850,  stopdesk: 450  },
+  "26": { domicile: 850,  stopdesk: 450  },
+  "27": { domicile: 850,  stopdesk: 500  },
+  "28": { domicile: 850,  stopdesk: 500  },
+  "29": { domicile: 900,  stopdesk: 600  },
+  "30": { domicile: 1100, stopdesk: 800  },
+  "31": { domicile: 850,  stopdesk: 450  },
+  "32": { domicile: 1100, stopdesk: 800  },
+  "33": { domicile: 2000, stopdesk: 1700 },
+  "34": { domicile: 850,  stopdesk: 450  },
+  "35": { domicile: 700,  stopdesk: 450  },
+  "36": { domicile: 950,  stopdesk: 600  },
+  "37": { domicile: 1800, stopdesk: 1400 },
+  "38": { domicile: 850,  stopdesk: 500  },
+  "39": { domicile: 1100, stopdesk: 800  },
+  "40": { domicile: 900,  stopdesk: 600  },
+  "41": { domicile: 900,  stopdesk: 600  },
+  "42": { domicile: 700,  stopdesk: 450  },
+  "43": { domicile: 850,  stopdesk: 500  },
+  "44": { domicile: 850,  stopdesk: 450  },
+  "45": { domicile: 1100, stopdesk: 800  },
+  "46": { domicile: 900,  stopdesk: 600  },
+  "47": { domicile: 1100, stopdesk: 800  },
+  "48": { domicile: 850,  stopdesk: 500  },
+  "49": { domicile: 1400, stopdesk: 1100 },
+  "51": { domicile: 1000, stopdesk: 700  },
+  "52": { domicile: 1400, stopdesk: 1100 },
+  "53": { domicile: 1400, stopdesk: 1100 },
+  "54": { domicile: 2000, stopdesk: 1700 },
+  "55": { domicile: 1100, stopdesk: 800  },
+  "56": { domicile: 2000, stopdesk: 1700 },
+  "57": { domicile: 1100, stopdesk: 800  },
+  "58": { domicile: 1300, stopdesk: 1000 }
+};
+
+(function(){
+  function init(){
+    const wilayaSelect   = document.getElementById("ckWilaya");
+    const communeSelect  = document.getElementById("ckCommune");
+    const typeSelect     = document.getElementById("ckLivraisonType");
+    const shippingEl     = document.getElementById("cartShippingCost");
+    const subtotalEl     = document.getElementById("cartPageTotal");
+    const totalEl        = document.getElementById("cartPageTotal2");
+    const hiddenPrixEl   = document.getElementById("ckLivraisonPrix");
+    const submitBtn      = document.getElementById("checkoutSubmitBtn");
+    const hintEl         = document.getElementById("ckLivraisonHint");
+
+    if(!wilayaSelect || !subtotalEl || !totalEl) return;
+
+    let currentShipping = null;
+
+    function fmt(n){
+      return (typeof formatDA === "function") ? formatDA(n) : `DA ${n.toFixed(2)}`;
+    }
+
+    function parseSubtotal(){
+      const raw = (subtotalEl.textContent || "").replace(/[^\d.,]/g, "").replace(",", ".");
+      const val = parseFloat(raw);
+      return isNaN(val) ? 0 : val;
+    }
+
+    function populateWilayas(){
+      WILAYAS.forEach(w => {
+        const opt = document.createElement("option");
+        opt.value = w.name;
+        opt.dataset.code = w.code;
+        opt.textContent = `${parseInt(w.code, 10)} — ${w.name}`;
+        wilayaSelect.appendChild(opt);
+      });
+    }
+
+    function populateCommunes(code){
+      communeSelect.innerHTML = '<option value="" disabled selected>Choisir une commune</option>';
+      const wilaya = WILAYAS.find(w => w.code === code);
+      if (!wilaya) { communeSelect.disabled = true; return; }
+      wilaya.communes.forEach(c => {
+        const opt = document.createElement("option");
+        opt.value = c;
+        opt.textContent = c;
+        communeSelect.appendChild(opt);
+      });
+      communeSelect.disabled = false;
+    }
+
+    function updateTotal(){
+      const subtotal = parseSubtotal();
+      const total = subtotal + (currentShipping || 0);
+      totalEl.textContent = fmt(total);
+    }
+
+    function toggleSubmit(){
+      if (submitBtn) submitBtn.disabled = (currentShipping === null);
+    }
+
+    function updateShipping(){
+      const selected = wilayaSelect.selectedOptions[0];
+      const code = selected && selected.dataset.code;
+
+      if (!code) {
+        shippingEl.textContent = "Choisissez une wilaya";
+        if (hintEl) hintEl.textContent = "Sélectionnez votre wilaya pour voir le tarif de livraison.";
+        currentShipping = null;
+        if (hiddenPrixEl) hiddenPrixEl.value = "";
+        updateTotal();
+        toggleSubmit();
+        return;
+      }
+
+      const rates = DELIVERY_RATES[code];
+
+      if (!rates) {
+        shippingEl.textContent = "Non desservi pour le moment";
+        if (hintEl) hintEl.textContent = "Cette wilaya n'est pas encore desservie — contactez-nous directement.";
+        currentShipping = null;
+        if (hiddenPrixEl) hiddenPrixEl.value = "";
+        updateTotal();
+        toggleSubmit();
+        return;
+      }
+
+      const mode = typeSelect.value; // "domicile" ou "stopdesk"
+      const price = rates[mode];
+      currentShipping = price;
+      if (hiddenPrixEl) hiddenPrixEl.value = price;
+      shippingEl.textContent = fmt(price);
+      if (hintEl) {
+        hintEl.textContent = mode === "stopdesk"
+          ? "Retrait en point Stop Desk — tarif réduit."
+          : "Livraison à domicile.";
+      }
+      updateTotal();
+      toggleSubmit();
+    }
+
+    wilayaSelect.addEventListener("change", () => {
+      const code = wilayaSelect.selectedOptions[0] && wilayaSelect.selectedOptions[0].dataset.code;
+      populateCommunes(code);
+      updateShipping();
+    });
+
+    typeSelect.addEventListener("change", updateShipping);
+
+    // Recalcule le total dès que cart.js met à jour le sous-total (ajout/suppression d'article)
+    const subtotalObserver = new MutationObserver(updateTotal);
+    subtotalObserver.observe(subtotalEl, { childList: true, characterData: true, subtree: true });
+
+    populateWilayas();
+    updateTotal();
+    toggleSubmit();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
