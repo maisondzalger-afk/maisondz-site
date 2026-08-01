@@ -125,6 +125,42 @@ const PRODUCTS = [
       "images/nomade-front-noir.png",
       "images/nomade-back-noir.png"
     ]
+  },
+  {
+    id: "tapestry",
+    name: "Tee-shirt Tapestry",
+    price: 3900,
+    oldPrice: 4200,
+    colors: ["Blanc", "Noir"],
+    sizes: ["S", "M", "L", "XL"],
+    tagline: "Patrimoine textile",
+    description: "Réinventer la tradition avec une touche contemporaine.\n\nCe t-shirt arbore un visuel minimaliste représentant trois tapis de prière stylisés aux couleurs vibrantes, rendant hommage à l'art textile et au patrimoine algérien.\n\nFabriqué en coton lourd de qualité supérieure pour une coupe nette et un confort quotidien.",
+    image: "images/tapestry-front-blanc.png",
+    hoverImage: "images/tapestry-back-blanc.png",
+    gallery: [
+      "images/tapestry-front-blanc.png",
+      "images/tapestry-back-blanc.png",
+      "images/tapestry-front-noir.png",
+      "images/tapestry-back-noir.png"
+    ]
+  },
+  {
+    id: "zellige",
+    name: "Tee-shirt Zellige",
+    price: 3900,
+    oldPrice: 4200,
+    colors: ["Blanc", "Noir"],
+    sizes: ["S", "M", "L", "XL"],
+    tagline: "Héritage architectural",
+    description: "Quand l'artisanat traditionnel rencontre le streetwear contemporain.\n\nLe t-shirt Zellige met à l'honneur l'héritage architectural algérien à travers une arche mauresque majestueuse imprimée au dos, composée d'un assemblage de faïences bleues et jaunes et rehaussée d'une touche d'agrumes méditerranéens.\n\nUne pièce forte, graphique et empreinte de fraîcheur.",
+    image: "images/zellige-front-blanc.png",
+    hoverImage: "images/zellige-back-blanc.png",
+    gallery: [
+      "images/zellige-front-blanc.png",
+      "images/zellige-back-blanc.png",
+      "images/zellige-front-noir.png",
+      "images/zellige-back-noir.png"
+    ]
   }
 ];
 
