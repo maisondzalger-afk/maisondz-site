@@ -13,7 +13,7 @@ const PRODUCTS = [
     name: "Tee-shirt No Risk No Risq",
     price: 3900,
     oldPrice: 4200,
-    colors: ["Blanc"],
+    colors: ["Blanc", "Noir"],
     sizes: ["S", "M", "L", "XL"],
     tagline: "Message direct",
     description: "Prendre des risques, avancer, tenter. Parce que rien n'arrive sans mouvement.\n\n« No risk, no risq » joue sur deux idées : l'action et ce qui est écrit.\n\nUn message simple, direct, entre ambition et réalité.",
@@ -33,7 +33,7 @@ const PRODUCTS = [
     name: "Tee-shirt Mektoub",
     price: 3900,
     oldPrice: 4200,
-    colors: ["Noir"],
+    colors: ["Noir", "Blanc"],
     sizes: ["S", "M", "L", "XL"],
     tagline: "Ce qui est écrit",
     description: "Un mot, une idée. « Mektoub », ce qui est écrit, ce qui arrive, ce qui devait être.\n\nEntre acceptation et confiance, un rappel discret que tout a son sens, même quand on ne le voit pas encore.",
@@ -53,7 +53,7 @@ const PRODUCTS = [
     name: "Tee-shirt Algérie Pays du Soleil",
     price: 3900,
     oldPrice: 4200,
-    colors: ["Noir"],
+    colors: ["Noir", "Blanc"],
     sizes: ["S", "M", "L", "XL"],
     tagline: "L'âme du Sahara",
     description: "Porter l'âme de l'Algérie, la chaleur du Sahara et la fierté de notre identité dans chaque fil.\n\nUn design unique, une qualité exceptionnelle, une pièce qui raconte notre histoire.",
@@ -73,7 +73,7 @@ const PRODUCTS = [
     name: "Tee-shirt Hayk",
     price: 3900,
     oldPrice: 4200,
-    colors: ["Blanc"],
+    colors: ["Blanc", "Noir"],
     sizes: ["S", "M", "L", "XL"],
     tagline: "Héritage revisité",
     description: "Un mot chargé d'histoire, symbole de pudeur, d'élégance et d'identité.\n\nLe hayk, plus qu'un vêtement, une présence, une manière d'être.\n\nIci, une interprétation moderne, simple, sans en faire trop.",
@@ -93,7 +93,7 @@ const PRODUCTS = [
     name: "Tee-shirt Fiha Kheir",
     price: 3900,
     oldPrice: 4200,
-    colors: ["Blanc"],
+    colors: ["Blanc", "Noir"],
     sizes: ["S", "M", "L", "XL"],
     tagline: "Patience & espoir",
     description: "Une phrase qu'on dit souvent, parfois avec conviction, parfois juste pour avancer.\n\n« Fiha kheir », c'est accepter sans tout comprendre.\n\nUn mélange de patience, de recul, et d'espoir, même discret.",
@@ -106,6 +106,24 @@ const PRODUCTS = [
       CDN + "Gemini_Generated_Image_f5kyu2f5kyu2f5ky.png?v=1778076475",
       CDN + "1780432110521.jpg?v=1781541869",
       CDN + "1780432110550.jpg?v=1781541893"
+    ]
+  },
+  {
+    id: "nomade",
+    name: "Tee-shirt Nomade",
+    price: 3900,
+    oldPrice: 4200,
+    colors: ["Blanc", "Noir"],
+    sizes: ["S", "M", "L", "XL"],
+    tagline: "Grand Sud algérien",
+    description: "L'esprit du désert rencontre l'art de la céramique.\n\nLe t-shirt Nomade met en scène l'emblématique homme bleu du Sahara, enveloppé dans son chèche traditionnel à la calligraphie dorée, se dévoilant à travers une faïence bleue déstructurée.\n\nUne pièce artistique et mystérieuse qui rend un hommage puissant à la culture du Grand Sud algérien.",
+    image: "images/nomade-front-blanc.png",
+    hoverImage: "images/nomade-back-blanc.png",
+    gallery: [
+      "images/nomade-front-blanc.png",
+      "images/nomade-back-blanc.png",
+      "images/nomade-front-noir.png",
+      "images/nomade-back-noir.png"
     ]
   }
 ];
