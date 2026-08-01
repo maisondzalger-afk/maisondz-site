@@ -161,6 +161,42 @@ const PRODUCTS = [
       "images/zellige-front-noir.png",
       "images/zellige-back-noir.png"
     ]
+  },
+  {
+    id: "trust-god",
+    name: "Tee-shirt Trust God",
+    price: 3900,
+    oldPrice: 4200,
+    colors: ["Blanc", "Noir"],
+    sizes: ["S", "M", "L", "XL"],
+    tagline: "Confiance & lâcher prise",
+    description: "Faire ce qu'il faut, puis laisser le reste.\n\n« Trust God », un rappel simple de confiance, de patience et de lâcher prise.\n\nUn message discret, porté avec intention.",
+    image: "images/trust-god-front-blanc.png",
+    hoverImage: "images/trust-god-back-blanc.png",
+    gallery: [
+      "images/trust-god-front-blanc.png",
+      "images/trust-god-back-blanc.png",
+      "images/trust-god-front-noir.png",
+      "images/trust-god-back-noir.png"
+    ]
+  },
+  {
+    id: "sabr",
+    name: "Tee-shirt Patience Brings Power Sabr",
+    price: 3900,
+    oldPrice: 4200,
+    colors: ["Blanc", "Noir"],
+    sizes: ["S", "M", "L", "XL"],
+    tagline: "La patience est une force",
+    description: "Une pièce pensée autour d'une idée simple : la patience n'est pas une faiblesse, c'est une force.\n\n« Patience brings power » s'associe à « Sabr », un mot chargé de sens, profondément ancré dans la culture.\n\nUn message discret, mais puissant. À porter sans en faire trop.",
+    image: "images/sabr-front-blanc.png",
+    hoverImage: "images/sabr-back-blanc.png",
+    gallery: [
+      "images/sabr-front-blanc.png",
+      "images/sabr-back-blanc.png",
+      "images/sabr-front-noir.png",
+      "images/sabr-back-noir.png"
+    ]
   }
 ];
 
