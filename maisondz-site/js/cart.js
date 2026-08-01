@@ -154,7 +154,43 @@ function renderCartPage(){
   if(totalEl) totalEl.textContent = formatDA(cartTotal());
 }
 
-/* ---------- Commande — envoi direct par e-mail (Resend via fonction Netlify) ---------- */
+/* ---------- Sélecteurs Wilaya / Commune (voir js/wilayas.js) ---------- */
+function initWilayaCommuneSelects(){
+  const wilayaSelect = document.getElementById("ckWilaya");
+  const communeSelect = document.getElementById("ckCommune");
+  if(!wilayaSelect || !communeSelect || typeof WILAYAS === "undefined") return;
+
+  WILAYAS.forEach(w => {
+    const opt = document.createElement("option");
+    opt.value = w.name;
+    opt.textContent = `${w.code} — ${w.name}`;
+    wilayaSelect.appendChild(opt);
+  });
+
+  wilayaSelect.addEventListener("change", () => {
+    const wilaya = WILAYAS.find(w => w.name === wilayaSelect.value);
+    communeSelect.innerHTML = "";
+    if(!wilaya){
+      communeSelect.disabled = true;
+      const placeholder = document.createElement("option");
+      placeholder.value = ""; placeholder.disabled = true; placeholder.selected = true;
+      placeholder.textContent = "Choisir d'abord la wilaya";
+      communeSelect.appendChild(placeholder);
+      return;
+    }
+    communeSelect.disabled = false;
+    const placeholder = document.createElement("option");
+    placeholder.value = ""; placeholder.disabled = true; placeholder.selected = true;
+    placeholder.textContent = "Choisir une commune";
+    communeSelect.appendChild(placeholder);
+    wilaya.communes.forEach(c => {
+      const opt = document.createElement("option");
+      opt.value = c;
+      opt.textContent = c;
+      communeSelect.appendChild(opt);
+    });
+  });
+}
 function buildOrderPayload(){
   const items = readCart();
   const form = document.getElementById("checkoutForm");
@@ -234,6 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCartCount();
   renderCartDrawer();
   renderCartPage();
+  initWilayaCommuneSelects();
 
   document.getElementById("cartOverlay")?.addEventListener("click", closeCartDrawer);
   document.getElementById("cartDrawerClose")?.addEventListener("click", closeCartDrawer);
