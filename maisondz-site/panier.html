@@ -48,8 +48,8 @@
     <div class="summary-box" id="cartSummary">
       <h3>Récapitulatif</h3>
       <div class="summary-row"><span>Sous-total</span><span id="cartPageTotal">DA 0.00</span></div>
-      <div class="summary-row"><span>Livraison</span><span>Calculée à la confirmation</span></div>
-      <div class="summary-row total"><span>Total estimé</span><span id="cartPageTotal2">DA 0.00</span></div>
+      <div class="summary-row"><span>Livraison</span><span id="deliveryFeeDisplay">Choisis ta wilaya</span></div>
+      <div class="summary-row total"><span>Total</span><span id="cartPageGrandTotal">DA 0.00</span></div>
 
       <form id="checkoutForm" style="margin-top:22px;">
         <div class="field">
@@ -73,6 +73,14 @@
               <option value="" disabled selected>Choisir d'abord la wilaya</option>
             </select>
           </div>
+        </div>
+        <div class="field" id="deliveryModeField" style="display:none;">
+          <label>Mode de livraison</label>
+          <div class="swatches">
+            <button type="button" class="swatch" id="modeDomicile" onclick="selectDeliveryMode('domicile')">Domicile — <span id="priceDomicile">—</span></button>
+            <button type="button" class="swatch" id="modeStopdesk" onclick="selectDeliveryMode('stopdesk')">Stop Desk — <span id="priceStopdesk">—</span></button>
+          </div>
+          <p id="deliveryUnavailable" style="display:none;color:var(--carmin);font-size:0.82rem;margin-top:10px;">Livraison non disponible pour cette wilaya, contacte-nous directement.</p>
         </div>
         <div class="field">
           <label for="ckAdresse">Adresse complète</label>
@@ -143,13 +151,6 @@
 <script src="js/products.js"></script>
 <script src="js/cart.js"></script>
 <script src="js/main.js"></script>
-<script>
-  // Garde le second total (résumé) synchronisé avec le premier
-  const obs = new MutationObserver(() => {
-    document.getElementById("cartPageTotal2").textContent = document.getElementById("cartPageTotal").textContent;
-  });
-  obs.observe(document.getElementById("cartPageTotal"), { childList:true });
-  document.getElementById("cartPageTotal2").textContent = document.getElementById("cartPageTotal").textContent;
-</script>
+
 </body>
 </html>

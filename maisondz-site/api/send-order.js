@@ -19,9 +19,9 @@ module.exports = async (req, res) => {
     return;
   }
 
-  const { items, total, nom, tel, wilaya, commune, adresse } = req.body || {};
+  const { items, subtotal, deliveryMode, deliveryFee, total, nom, tel, wilaya, commune, adresse } = req.body || {};
 
-  if (!nom || !tel || !wilaya || !commune || !adresse || !items || items.length === 0) {
+  if (!nom || !tel || !wilaya || !commune || !adresse || !items || items.length === 0 || !deliveryMode) {
     res.status(400).json({ error: "Informations de commande incomplètes." });
     return;
   }
@@ -37,7 +37,9 @@ module.exports = async (req, res) => {
 
       <h3>Articles</h3>
       <ul>${itemsHtml}</ul>
-      <p style="font-size:1.1em;"><strong>Total : ${total} DA</strong> (paiement à la livraison)</p>
+      <p>Sous-total articles : ${subtotal} DA</p>
+      <p>Livraison (${deliveryMode}) : ${deliveryFee} DA</p>
+      <p style="font-size:1.1em;"><strong>Total à payer à la livraison : ${total} DA</strong></p>
 
       <hr>
 
@@ -47,6 +49,7 @@ module.exports = async (req, res) => {
       <p><strong>Wilaya :</strong> ${wilaya}</p>
       <p><strong>Commune :</strong> ${commune}</p>
       <p><strong>Adresse :</strong> ${adresse}</p>
+      <p><strong>Mode de livraison :</strong> ${deliveryMode}</p>
     </div>
   `;
 

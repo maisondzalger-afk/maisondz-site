@@ -152,9 +152,12 @@ function renderCartPage(){
 
   const totalEl = document.getElementById("cartPageTotal");
   if(totalEl) totalEl.textContent = formatDA(cartTotal());
+  updateDeliverySummary();
 }
 
 /* ---------- Sélecteurs Wilaya / Commune (voir js/wilayas.js) ---------- */
+let selectedDeliveryMode = null; // "domicile" ou "stopdesk"
+
 function initWilayaCommuneSelects(){
   const wilayaSelect = document.getElementById("ckWilaya");
   const communeSelect = document.getElementById("ckCommune");
@@ -163,6 +166,7 @@ function initWilayaCommuneSelects(){
   WILAYAS.forEach(w => {
     const opt = document.createElement("option");
     opt.value = w.name;
+    opt.dataset.code = w.code;
     opt.textContent = `${w.code} — ${w.name}`;
     wilayaSelect.appendChild(opt);
   });
@@ -176,24 +180,109 @@ function initWilayaCommuneSelects(){
       placeholder.value = ""; placeholder.disabled = true; placeholder.selected = true;
       placeholder.textContent = "Choisir d'abord la wilaya";
       communeSelect.appendChild(placeholder);
-      return;
+    }else{
+      communeSelect.disabled = false;
+      const placeholder = document.createElement("option");
+      placeholder.value = ""; placeholder.disabled = true; placeholder.selected = true;
+      placeholder.textContent = "Choisir une commune";
+      communeSelect.appendChild(placeholder);
+      wilaya.communes.forEach(c => {
+        const opt = document.createElement("option");
+        opt.value = c;
+        opt.textContent = c;
+        communeSelect.appendChild(opt);
+      });
     }
-    communeSelect.disabled = false;
-    const placeholder = document.createElement("option");
-    placeholder.value = ""; placeholder.disabled = true; placeholder.selected = true;
-    placeholder.textContent = "Choisir une commune";
-    communeSelect.appendChild(placeholder);
-    wilaya.communes.forEach(c => {
-      const opt = document.createElement("option");
-      opt.value = c;
-      opt.textContent = c;
-      communeSelect.appendChild(opt);
-    });
+    selectedDeliveryMode = null;
+    updateDeliveryOptions();
   });
 }
+
+function getSelectedWilayaCode(){
+  const wilayaSelect = document.getElementById("ckWilaya");
+  if(!wilayaSelect || !wilayaSelect.selectedOptions.length) return null;
+  return wilayaSelect.selectedOptions[0].dataset.code || null;
+}
+
+function getDeliveryRate(){
+  const code = getSelectedWilayaCode();
+  if(!code) return null;
+  return typeof DELIVERY_RATES !== "undefined" ? (DELIVERY_RATES[code] || null) : null;
+}
+
+// Affiche les tarifs domicile / stop desk dès qu'une wilaya est choisie
+function updateDeliveryOptions(){
+  const field = document.getElementById("deliveryModeField");
+  const unavailable = document.getElementById("deliveryUnavailable");
+  if(!field) return;
+
+  const rate = getDeliveryRate();
+
+  if(!getSelectedWilayaCode()){
+    field.style.display = "none";
+    updateDeliverySummary();
+    return;
+  }
+
+  field.style.display = "block";
+
+  if(!rate){
+    unavailable.style.display = "block";
+    document.getElementById("modeDomicile").style.display = "none";
+    document.getElementById("modeStopdesk").style.display = "none";
+    selectedDeliveryMode = null;
+    updateDeliverySummary();
+    return;
+  }
+
+  unavailable.style.display = "none";
+  document.getElementById("modeDomicile").style.display = "inline-flex";
+  document.getElementById("modeStopdesk").style.display = "inline-flex";
+  document.getElementById("priceDomicile").textContent = formatDA(rate.domicile);
+  document.getElementById("priceStopdesk").textContent = formatDA(rate.stopdesk);
+
+  document.getElementById("modeDomicile").classList.toggle("active", selectedDeliveryMode === "domicile");
+  document.getElementById("modeStopdesk").classList.toggle("active", selectedDeliveryMode === "stopdesk");
+
+  updateDeliverySummary();
+}
+
+function selectDeliveryMode(mode){
+  selectedDeliveryMode = mode;
+  document.getElementById("modeDomicile").classList.toggle("active", mode === "domicile");
+  document.getElementById("modeStopdesk").classList.toggle("active", mode === "stopdesk");
+  updateDeliverySummary();
+}
+
+function getDeliveryFee(){
+  const rate = getDeliveryRate();
+  if(!rate || !selectedDeliveryMode) return null;
+  return selectedDeliveryMode === "domicile" ? rate.domicile : rate.stopdesk;
+}
+
+// Met à jour la ligne "Livraison" et le "Total" du récapitulatif
+function updateDeliverySummary(){
+  const feeDisplay = document.getElementById("deliveryFeeDisplay");
+  const grandTotalDisplay = document.getElementById("cartPageGrandTotal");
+  if(!feeDisplay || !grandTotalDisplay) return;
+
+  const subtotal = cartTotal();
+  const fee = getDeliveryFee();
+
+  if(fee === null){
+    feeDisplay.textContent = getSelectedWilayaCode() ? "Choisis le mode de livraison" : "Choisis ta wilaya";
+    grandTotalDisplay.textContent = formatDA(subtotal);
+  }else{
+    feeDisplay.textContent = formatDA(fee);
+    grandTotalDisplay.textContent = formatDA(subtotal + fee);
+  }
+}
+
 function buildOrderPayload(){
   const items = readCart();
   const form = document.getElementById("checkoutForm");
+  const deliveryFee = getDeliveryFee();
+  const subtotal = cartTotal();
 
   const orderItems = items.map(i => {
     const p = getProduct(i.productId);
@@ -208,7 +297,10 @@ function buildOrderPayload(){
 
   return {
     items: orderItems,
-    total: cartTotal(),
+    subtotal,
+    deliveryMode: selectedDeliveryMode === "domicile" ? "Domicile" : (selectedDeliveryMode === "stopdesk" ? "Stop Desk" : null),
+    deliveryFee,
+    total: subtotal + (deliveryFee || 0),
     nom: form.querySelector("#ckNom")?.value.trim(),
     tel: form.querySelector("#ckTel")?.value.trim(),
     wilaya: form.querySelector("#ckWilaya")?.value.trim(),
@@ -223,6 +315,18 @@ async function submitOrder(e){
   if(form && !form.reportValidity()) return;
   if(cartCount() === 0){
     alert("Ton panier est vide. Ajoute un article avant de commander.");
+    return;
+  }
+  if(!getSelectedWilayaCode()){
+    alert("Choisis ta wilaya avant de confirmer.");
+    return;
+  }
+  if(!getDeliveryRate()){
+    alert("La livraison n'est pas disponible pour cette wilaya. Contacte-nous directement.");
+    return;
+  }
+  if(!selectedDeliveryMode){
+    alert("Choisis un mode de livraison (Domicile ou Stop Desk) avant de confirmer.");
     return;
   }
 
@@ -253,7 +357,8 @@ async function submitOrder(e){
           <h2 style="margin-bottom:14px;">Commande reçue ✅</h2>
           <p style="color:var(--pierre);max-width:46ch;margin:0 auto 26px;">
             Merci ${payload.nom} ! Ta commande a bien été transmise à Maison DZ.
-            On te contacte au ${payload.tel} pour confirmer la livraison.
+            Livraison ${payload.deliveryMode} — Total : ${formatDA(payload.total)}.
+            On te contacte au ${payload.tel} pour confirmer.
             Paiement à la livraison (Cash).
           </p>
           <a href="catalogue.html" class="btn btn--carmin">Continuer les achats</a>
