@@ -10,6 +10,7 @@ const CDN = "https://maisondz.net/cdn/shop/files/";
 const PRODUCTS = [
   {
     id: "no-risk-no-risq",
+    collection: "Héritage 001",
     name: "Tee-shirt No Risk No Risq",
     price: 3900,
     oldPrice: 4200,
@@ -30,6 +31,7 @@ const PRODUCTS = [
   },
   {
     id: "mektoub",
+    collection: "Héritage 001",
     name: "Tee-shirt Mektoub",
     price: 3900,
     oldPrice: 4200,
@@ -50,6 +52,7 @@ const PRODUCTS = [
   },
   {
     id: "algerie-pays-du-soleil",
+    collection: "Héritage 001",
     name: "Tee-shirt Algérie Pays du Soleil",
     price: 3900,
     oldPrice: 4200,
@@ -70,6 +73,7 @@ const PRODUCTS = [
   },
   {
     id: "hayk",
+    collection: "Héritage 001",
     name: "Tee-shirt Hayk",
     price: 3900,
     oldPrice: 4200,
@@ -90,6 +94,7 @@ const PRODUCTS = [
   },
   {
     id: "fiha-kheir",
+    collection: "Héritage 001",
     name: "Tee-shirt Fiha Kheir",
     price: 3900,
     oldPrice: 4200,
@@ -110,6 +115,7 @@ const PRODUCTS = [
   },
   {
     id: "nomade",
+    collection: "Héritage 002",
     name: "Tee-shirt Nomade",
     price: 3900,
     oldPrice: 4200,
@@ -128,6 +134,7 @@ const PRODUCTS = [
   },
   {
     id: "tapestry",
+    collection: "Héritage 002",
     name: "Tee-shirt Tapestry",
     price: 3900,
     oldPrice: 4200,
@@ -146,6 +153,7 @@ const PRODUCTS = [
   },
   {
     id: "zellige",
+    collection: "Héritage 002",
     name: "Tee-shirt Zellige",
     price: 3900,
     oldPrice: 4200,
@@ -164,6 +172,7 @@ const PRODUCTS = [
   },
   {
     id: "trust-god",
+    collection: "Héritage 001",
     name: "Tee-shirt Trust God",
     price: 3900,
     oldPrice: 4200,
@@ -182,6 +191,7 @@ const PRODUCTS = [
   },
   {
     id: "sabr",
+    collection: "Héritage 001",
     name: "Tee-shirt Patience Brings Power Sabr",
     price: 3900,
     oldPrice: 4200,
@@ -200,6 +210,7 @@ const PRODUCTS = [
   },
   {
     id: "tawakul",
+    collection: "Héritage 001",
     name: "Tee-shirt Trust The Process Tawakul",
     price: 3900,
     oldPrice: 4200,

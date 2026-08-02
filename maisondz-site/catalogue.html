@@ -6,7 +6,7 @@
 <title>Catalogue — Maison DZ</title>
 <meta name="description" content="Tout le catalogue Maison DZ : streetwear inspiré de l'Algérie, 3900 DA, livraison dans toutes les wilayas.">
 <link rel="icon" href="https://maisondz.net/cdn/shop/files/logo.png?v=1776026106">
-<link rel="stylesheet" href="css/style.css?v=202608021536">
+<link rel="stylesheet" href="css/style.css?v=202608021543">
 </head>
 <body>
 
@@ -39,7 +39,7 @@
   <div class="container">
     <span class="eyebrow" style="color:var(--or)">Le catalogue</span>
     <h1>Tous les modèles</h1>
-    <p>5 designs. Une seule pièce à la fois — production en quantités limitées.</p>
+    <p>Livraison dans les 58 wilayas, paiement à la livraison.</p>
   </div>
 </section>
 
@@ -47,7 +47,27 @@
 
 <section class="section">
   <div class="container">
-    <div class="product-grid" id="catalogueGrid"></div>
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Collection</span>
+        <h2>Héritage 001</h2>
+      </div>
+    </div>
+    <div class="product-grid" id="grid001"></div>
+  </div>
+</section>
+
+<div class="frise frise--dark" role="presentation"></div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Collection</span>
+        <h2>Héritage 002</h2>
+      </div>
+    </div>
+    <div class="product-grid" id="grid002"></div>
   </div>
 </section>
 
@@ -116,11 +136,12 @@
   </div>
 </aside>
 
-<script src="js/products.js?v=202608021536"></script>
-<script src="js/cart.js?v=202608021536"></script>
-<script src="js/main.js?v=202608021536"></script>
+<script src="js/products.js?v=202608021543"></script>
+<script src="js/cart.js?v=202608021543"></script>
+<script src="js/main.js?v=202608021543"></script>
 <script>
-  renderProductGrid("catalogueGrid", PRODUCTS);
+  renderProductGrid("grid001", PRODUCTS.filter(p => p.collection === "Héritage 001"));
+  renderProductGrid("grid002", PRODUCTS.filter(p => p.collection === "Héritage 002"));
 </script>
 </body>
 </html>
