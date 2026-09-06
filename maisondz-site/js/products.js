@@ -5,10 +5,11 @@
    que tu remplaces par tes propres photos (voir README.md).
    ========================================================================== */
 
+const CDN = "https://maisondz.net/cdn/shop/files/";
+
 const PRODUCTS = [
   {
     id: "no-risk-no-risq",
-    collection: "Héritage 001",
     name: "Tee-shirt No Risk No Risq",
     price: 3900,
     oldPrice: 4200,
@@ -16,20 +17,17 @@ const PRODUCTS = [
     sizes: ["S", "M", "L", "XL"],
     tagline: "Message direct",
     description: "Prendre des risques, avancer, tenter. Parce que rien n'arrive sans mouvement.\n\n« No risk, no risq » joue sur deux idées : l'action et ce qui est écrit.\n\nUn message simple, direct, entre ambition et réalité.",
-    image: "images/no-risk-no-risq-front-blanc.png",
-    hoverImage: "images/no-risk-no-risq-back-blanc.png",
+    image: CDN + "Gemini_Generated_Image_wm0j0ywm0j0ywm0j.png?v=1778075647",
+    hoverImage: CDN + "Gemini_Generated_Image_8emc7n8emc7n8emc.png?v=1778075872",
     gallery: [
-      "images/no-risk-no-risq-front-blanc.png",
-      "images/no-risk-no-risq-back-blanc.png",
-      "images/no-risk-no-risq-front-noir.png",
-      "images/no-risk-no-risq-back-noir.png",
-      "images/no-risk-no-risq-lifestyle-blanc.jpg",
-      "images/no-risk-no-risq-lifestyle-noir.jpg"
+      CDN + "Gemini_Generated_Image_wm0j0ywm0j0ywm0j.png?v=1778075647",
+      CDN + "Gemini_Generated_Image_8emc7n8emc7n8emc.png?v=1778075872",
+      CDN + "Gemini_Generated_Image_kranshkranshkran.png?v=1778075040",
+      CDN + "Gemini_Generated_Image_iwq1a9iwq1a9iwq1.png?v=1778075088"
     ]
   },
   {
     id: "mektoub",
-    collection: "Héritage 001",
     name: "Tee-shirt Mektoub",
     price: 3900,
     oldPrice: 4200,
@@ -37,21 +35,17 @@ const PRODUCTS = [
     sizes: ["S", "M", "L", "XL"],
     tagline: "Ce qui est écrit",
     description: "Un mot, une idée. « Mektoub », ce qui est écrit, ce qui arrive, ce qui devait être.\n\nEntre acceptation et confiance, un rappel discret que tout a son sens, même quand on ne le voit pas encore.",
-    image: "images/mektoub-front-noir.png",
-    hoverImage: "images/mektoub-back-noir.png",
+    image: CDN + "Gemini_Generated_Image_t4o1jft4o1jft4o1_1.png?v=1778076124",
+    hoverImage: CDN + "Gemini_Generated_Image_1vtnqq1vtnqq1vtn.png?v=1778076227",
     gallery: [
-      "images/mektoub-front-noir.png",
-      "images/mektoub-back-noir.png",
-      "images/mektoub-front-blanc.png",
-      "images/mektoub-back-blanc.png",
-      "images/mektoub-lifestyle-1.jpg",
-      "images/mektoub-lifestyle-2.jpg",
-      "images/mektoub-lifestyle-3.jpg"
+      CDN + "Gemini_Generated_Image_t4o1jft4o1jft4o1_1.png?v=1778076124",
+      CDN + "Gemini_Generated_Image_1vtnqq1vtnqq1vtn.png?v=1778076227",
+      CDN + "Gemini_Generated_Image_d97n5xd97n5xd97n.png?v=1778075972",
+      CDN + "Gemini_Generated_Image_lesjvslesjvslesj.png?v=1778076072"
     ]
   },
   {
     id: "algerie-pays-du-soleil",
-    collection: "Héritage 001",
     name: "Tee-shirt Algérie Pays du Soleil",
     price: 3900,
     oldPrice: 4200,
@@ -59,21 +53,17 @@ const PRODUCTS = [
     sizes: ["S", "M", "L", "XL"],
     tagline: "L'âme du Sahara",
     description: "Porter l'âme de l'Algérie, la chaleur du Sahara et la fierté de notre identité dans chaque fil.\n\nUn design unique, une qualité exceptionnelle, une pièce qui raconte notre histoire.",
-    image: "images/algerie-pays-du-soleil-front-noir.png",
-    hoverImage: "images/algerie-pays-du-soleil-back-noir.png",
+    image: CDN + "Gemini_Generated_Image_b1npu3b1npu3b1np.png?v=1778074006",
+    hoverImage: CDN + "Gemini_Generated_Image_47a0y947a0y947a0.png?v=1778074046",
     gallery: [
-      "images/algerie-pays-du-soleil-front-noir.png",
-      "images/algerie-pays-du-soleil-back-noir.png",
-      "images/algerie-pays-du-soleil-front-blanc.png",
-      "images/algerie-pays-du-soleil-back-blanc.png",
-      "images/algerie-pays-du-soleil-lifestyle-1.jpg",
-      "images/algerie-pays-du-soleil-lifestyle-2.jpg",
-      "images/algerie-pays-du-soleil-lifestyle-3.jpg"
+      CDN + "Gemini_Generated_Image_b1npu3b1npu3b1np.png?v=1778074006",
+      CDN + "Gemini_Generated_Image_47a0y947a0y947a0.png?v=1778074046",
+      CDN + "Gemini_Generated_Image_lst1o0lst1o0lst1.png?v=1778074106",
+      CDN + "Gemini_Generated_Image_nbcxyvnbcxyvnbcx.png?v=1778074260"
     ]
   },
   {
     id: "hayk",
-    collection: "Héritage 001",
     name: "Tee-shirt Hayk",
     price: 3900,
     oldPrice: 4200,
@@ -81,20 +71,17 @@ const PRODUCTS = [
     sizes: ["S", "M", "L", "XL"],
     tagline: "Héritage revisité",
     description: "Un mot chargé d'histoire, symbole de pudeur, d'élégance et d'identité.\n\nLe hayk, plus qu'un vêtement, une présence, une manière d'être.\n\nIci, une interprétation moderne, simple, sans en faire trop.",
-    image: "images/hayk-front-blanc.png",
-    hoverImage: "images/hayk-back-blanc.png",
+    image: CDN + "Gemini_Generated_Image_b76eujb76eujb76e.png?v=1778073106",
+    hoverImage: CDN + "Gemini_Generated_Image_174kld174kld174k.png?v=1778073352",
     gallery: [
-      "images/hayk-front-blanc.png",
-      "images/hayk-back-blanc.png",
-      "images/hayk-front-noir.png",
-      "images/hayk-back-noir.png",
-      "images/hayk-lifestyle-blanc.jpg",
-      "images/hayk-lifestyle-noir.jpg"
+      CDN + "Gemini_Generated_Image_b76eujb76eujb76e.png?v=1778073106",
+      CDN + "Gemini_Generated_Image_174kld174kld174k.png?v=1778073352",
+      CDN + "Gemini_Generated_Image_wc93amwc93amwc93.png?v=1778073451",
+      CDN + "Gemini_Generated_Image_8zkfm28zkfm28zkf.png?v=1778073501"
     ]
   },
   {
     id: "fiha-kheir",
-    collection: "Héritage 001",
     name: "Tee-shirt Fiha Kheir",
     price: 3900,
     oldPrice: 4200,
@@ -102,20 +89,17 @@ const PRODUCTS = [
     sizes: ["S", "M", "L", "XL"],
     tagline: "Patience & espoir",
     description: "Une phrase qu'on dit souvent, parfois avec conviction, parfois juste pour avancer.\n\n« Fiha kheir », c'est accepter sans tout comprendre.\n\nUn mélange de patience, de recul, et d'espoir, même discret.",
-    image: "images/fiha-kheir-front-blanc.png",
-    hoverImage: "images/fiha-kheir-back-blanc.png",
+    image: CDN + "Gemini_Generated_Image_takaldtakaldtaka.png?v=1778076716",
+    hoverImage: CDN + "Gemini_Generated_Image_vu0urrvu0urrvu0u.png?v=1778076820",
     gallery: [
-      "images/fiha-kheir-front-blanc.png",
-      "images/fiha-kheir-back-blanc.png",
-      "images/fiha-kheir-front-noir.png",
-      "images/fiha-kheir-back-noir.png",
-      "images/fiha-kheir-lifestyle-1.jpg",
-      "images/fiha-kheir-lifestyle-2.jpg"
+      CDN + "Gemini_Generated_Image_takaldtakaldtaka.png?v=1778076716",
+      CDN + "Gemini_Generated_Image_vu0urrvu0urrvu0u.png?v=1778076820",
+      CDN + "Gemini_Generated_Image_5wqiy65wqiy65wqi.png?v=1778076427",
+      CDN + "Gemini_Generated_Image_f5kyu2f5kyu2f5ky.png?v=1778076475"
     ]
   },
   {
     id: "nomade",
-    collection: "Héritage 002",
     name: "Tee-shirt Nomade",
     price: 3900,
     oldPrice: 4200,
@@ -134,7 +118,6 @@ const PRODUCTS = [
   },
   {
     id: "tapestry",
-    collection: "Héritage 002",
     name: "Tee-shirt Tapestry",
     price: 3900,
     oldPrice: 4200,
@@ -153,7 +136,6 @@ const PRODUCTS = [
   },
   {
     id: "zellige",
-    collection: "Héritage 002",
     name: "Tee-shirt Zellige",
     price: 3900,
     oldPrice: 4200,
@@ -172,7 +154,6 @@ const PRODUCTS = [
   },
   {
     id: "trust-god",
-    collection: "Héritage 001",
     name: "Tee-shirt Trust God",
     price: 3900,
     oldPrice: 4200,
@@ -191,7 +172,6 @@ const PRODUCTS = [
   },
   {
     id: "sabr",
-    collection: "Héritage 001",
     name: "Tee-shirt Patience Brings Power Sabr",
     price: 3900,
     oldPrice: 4200,
@@ -210,7 +190,6 @@ const PRODUCTS = [
   },
   {
     id: "tawakul",
-    collection: "Héritage 001",
     name: "Tee-shirt Trust The Process Tawakul",
     price: 3900,
     oldPrice: 4200,
