@@ -23,7 +23,9 @@ const PRODUCTS = [
       CDN + "Gemini_Generated_Image_wm0j0ywm0j0ywm0j.png?v=1778075647",
       CDN + "Gemini_Generated_Image_8emc7n8emc7n8emc.png?v=1778075872",
       CDN + "Gemini_Generated_Image_kranshkranshkran.png?v=1778075040",
-      CDN + "Gemini_Generated_Image_iwq1a9iwq1a9iwq1.png?v=1778075088"
+      CDN + "Gemini_Generated_Image_iwq1a9iwq1a9iwq1.png?v=1778075088",
+      CDN + "IMG_6336.jpg?v=1777716222",
+      CDN + "1780432110266.jpg?v=1781541605"
     ]
   },
   {
@@ -41,7 +43,9 @@ const PRODUCTS = [
       CDN + "Gemini_Generated_Image_t4o1jft4o1jft4o1_1.png?v=1778076124",
       CDN + "Gemini_Generated_Image_1vtnqq1vtnqq1vtn.png?v=1778076227",
       CDN + "Gemini_Generated_Image_d97n5xd97n5xd97n.png?v=1778075972",
-      CDN + "Gemini_Generated_Image_lesjvslesjvslesj.png?v=1778076072"
+      CDN + "Gemini_Generated_Image_lesjvslesjvslesj.png?v=1778076072",
+      CDN + "IMG_6258.jpg?v=1777982490",
+      CDN + "IMG_6043.jpg?v=1777982598"
     ]
   },
   {
@@ -59,7 +63,9 @@ const PRODUCTS = [
       CDN + "Gemini_Generated_Image_b1npu3b1npu3b1np.png?v=1778074006",
       CDN + "Gemini_Generated_Image_47a0y947a0y947a0.png?v=1778074046",
       CDN + "Gemini_Generated_Image_lst1o0lst1o0lst1.png?v=1778074106",
-      CDN + "Gemini_Generated_Image_nbcxyvnbcxyvnbcx.png?v=1778074260"
+      CDN + "Gemini_Generated_Image_nbcxyvnbcxyvnbcx.png?v=1778074260",
+      CDN + "IMG_6314.jpg?v=1777982666",
+      CDN + "IMG_6075.jpg?v=1777983055"
     ]
   },
   {
@@ -77,7 +83,9 @@ const PRODUCTS = [
       CDN + "Gemini_Generated_Image_b76eujb76eujb76e.png?v=1778073106",
       CDN + "Gemini_Generated_Image_174kld174kld174k.png?v=1778073352",
       CDN + "Gemini_Generated_Image_wc93amwc93amwc93.png?v=1778073451",
-      CDN + "Gemini_Generated_Image_8zkfm28zkfm28zkf.png?v=1778073501"
+      CDN + "Gemini_Generated_Image_8zkfm28zkfm28zkf.png?v=1778073501",
+      CDN + "IMG_6323.jpg?v=1777715939",
+      CDN + "1780432110354.jpg?v=1781542077"
     ]
   },
   {
@@ -95,7 +103,9 @@ const PRODUCTS = [
       CDN + "Gemini_Generated_Image_takaldtakaldtaka.png?v=1778076716",
       CDN + "Gemini_Generated_Image_vu0urrvu0urrvu0u.png?v=1778076820",
       CDN + "Gemini_Generated_Image_5wqiy65wqiy65wqi.png?v=1778076427",
-      CDN + "Gemini_Generated_Image_f5kyu2f5kyu2f5ky.png?v=1778076475"
+      CDN + "Gemini_Generated_Image_f5kyu2f5kyu2f5ky.png?v=1778076475",
+      CDN + "1780432110521.jpg?v=1781541869",
+      CDN + "1780432110550.jpg?v=1781541893"
     ]
   },
   {
