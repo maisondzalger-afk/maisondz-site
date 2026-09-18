@@ -17,15 +17,13 @@ const PRODUCTS = [
     sizes: ["S", "M", "L", "XL"],
     tagline: "Message direct",
     description: "Prendre des risques, avancer, tenter. Parce que rien n'arrive sans mouvement.\n\n« No risk, no risq » joue sur deux idées : l'action et ce qui est écrit.\n\nUn message simple, direct, entre ambition et réalité.",
-    image: CDN + "Gemini_Generated_Image_wm0j0ywm0j0ywm0j.png?v=1778075647",
-    hoverImage: CDN + "Gemini_Generated_Image_8emc7n8emc7n8emc.png?v=1778075872",
+    image: "images/norisk-front-blanc.png",
+    hoverImage: "images/norisk-back-blanc.png",
     gallery: [
-      CDN + "Gemini_Generated_Image_wm0j0ywm0j0ywm0j.png?v=1778075647",
-      CDN + "Gemini_Generated_Image_8emc7n8emc7n8emc.png?v=1778075872",
-      CDN + "Gemini_Generated_Image_kranshkranshkran.png?v=1778075040",
-      CDN + "Gemini_Generated_Image_iwq1a9iwq1a9iwq1.png?v=1778075088",
-      CDN + "IMG_6336.jpg?v=1777716222",
-      CDN + "1780432110266.jpg?v=1781541605"
+      "images/norisk-front-blanc.png",
+      "images/norisk-back-blanc.png",
+      "images/norisk-front-noir.png",
+      "images/norisk-back-noir.png"
     ]
   },
   {
@@ -37,15 +35,13 @@ const PRODUCTS = [
     sizes: ["S", "M", "L", "XL"],
     tagline: "Ce qui est écrit",
     description: "Un mot, une idée. « Mektoub », ce qui est écrit, ce qui arrive, ce qui devait être.\n\nEntre acceptation et confiance, un rappel discret que tout a son sens, même quand on ne le voit pas encore.",
-    image: CDN + "Gemini_Generated_Image_t4o1jft4o1jft4o1_1.png?v=1778076124",
-    hoverImage: CDN + "Gemini_Generated_Image_1vtnqq1vtnqq1vtn.png?v=1778076227",
+    image: "images/mektoub-front-noir.png",
+    hoverImage: "images/mektoub-back-noir.png",
     gallery: [
-      CDN + "Gemini_Generated_Image_t4o1jft4o1jft4o1_1.png?v=1778076124",
-      CDN + "Gemini_Generated_Image_1vtnqq1vtnqq1vtn.png?v=1778076227",
-      CDN + "Gemini_Generated_Image_d97n5xd97n5xd97n.png?v=1778075972",
-      CDN + "Gemini_Generated_Image_lesjvslesjvslesj.png?v=1778076072",
-      CDN + "IMG_6258.jpg?v=1777982490",
-      CDN + "IMG_6043.jpg?v=1777982598"
+      "images/mektoub-front-noir.png",
+      "images/mektoub-back-noir.png",
+      "images/mektoub-front-blanc.png",
+      "images/mektoub-back-blanc.png"
     ]
   },
   {
@@ -57,15 +53,13 @@ const PRODUCTS = [
     sizes: ["S", "M", "L", "XL"],
     tagline: "L'âme du Sahara",
     description: "Porter l'âme de l'Algérie, la chaleur du Sahara et la fierté de notre identité dans chaque fil.\n\nUn design unique, une qualité exceptionnelle, une pièce qui raconte notre histoire.",
-    image: CDN + "Gemini_Generated_Image_b1npu3b1npu3b1np.png?v=1778074006",
-    hoverImage: CDN + "Gemini_Generated_Image_47a0y947a0y947a0.png?v=1778074046",
+    image: "images/soleil-front-noir.png",
+    hoverImage: "images/soleil-back-noir.png",
     gallery: [
-      CDN + "Gemini_Generated_Image_b1npu3b1npu3b1np.png?v=1778074006",
-      CDN + "Gemini_Generated_Image_47a0y947a0y947a0.png?v=1778074046",
-      CDN + "Gemini_Generated_Image_lst1o0lst1o0lst1.png?v=1778074106",
-      CDN + "Gemini_Generated_Image_nbcxyvnbcxyvnbcx.png?v=1778074260",
-      CDN + "IMG_6314.jpg?v=1777982666",
-      CDN + "IMG_6075.jpg?v=1777983055"
+      "images/soleil-front-noir.png",
+      "images/soleil-back-noir.png",
+      "images/soleil-front-blanc.png",
+      "images/soleil-back-blanc.png"
     ]
   },
   {
@@ -77,15 +71,13 @@ const PRODUCTS = [
     sizes: ["S", "M", "L", "XL"],
     tagline: "Héritage revisité",
     description: "Un mot chargé d'histoire, symbole de pudeur, d'élégance et d'identité.\n\nLe hayk, plus qu'un vêtement, une présence, une manière d'être.\n\nIci, une interprétation moderne, simple, sans en faire trop.",
-    image: CDN + "Gemini_Generated_Image_b76eujb76eujb76e.png?v=1778073106",
-    hoverImage: CDN + "Gemini_Generated_Image_174kld174kld174k.png?v=1778073352",
+    image: "images/hayk-front-blanc.png",
+    hoverImage: "images/hayk-back-blanc.png",
     gallery: [
-      CDN + "Gemini_Generated_Image_b76eujb76eujb76e.png?v=1778073106",
-      CDN + "Gemini_Generated_Image_174kld174kld174k.png?v=1778073352",
-      CDN + "Gemini_Generated_Image_wc93amwc93amwc93.png?v=1778073451",
-      CDN + "Gemini_Generated_Image_8zkfm28zkfm28zkf.png?v=1778073501",
-      CDN + "IMG_6323.jpg?v=1777715939",
-      CDN + "1780432110354.jpg?v=1781542077"
+      "images/hayk-front-blanc.png",
+      "images/hayk-back-blanc.png",
+      "images/hayk-front-noir.png",
+      "images/hayk-back-noir.png"
     ]
   },
   {
@@ -97,15 +89,13 @@ const PRODUCTS = [
     sizes: ["S", "M", "L", "XL"],
     tagline: "Patience & espoir",
     description: "Une phrase qu'on dit souvent, parfois avec conviction, parfois juste pour avancer.\n\n« Fiha kheir », c'est accepter sans tout comprendre.\n\nUn mélange de patience, de recul, et d'espoir, même discret.",
-    image: CDN + "Gemini_Generated_Image_takaldtakaldtaka.png?v=1778076716",
-    hoverImage: CDN + "Gemini_Generated_Image_vu0urrvu0urrvu0u.png?v=1778076820",
+    image: "images/fiha-front-blanc.png",
+    hoverImage: "images/fiha-back-blanc.png",
     gallery: [
-      CDN + "Gemini_Generated_Image_takaldtakaldtaka.png?v=1778076716",
-      CDN + "Gemini_Generated_Image_vu0urrvu0urrvu0u.png?v=1778076820",
-      CDN + "Gemini_Generated_Image_5wqiy65wqiy65wqi.png?v=1778076427",
-      CDN + "Gemini_Generated_Image_f5kyu2f5kyu2f5ky.png?v=1778076475",
-      CDN + "1780432110521.jpg?v=1781541869",
-      CDN + "1780432110550.jpg?v=1781541893"
+      "images/fiha-front-blanc.png",
+      "images/fiha-back-blanc.png",
+      "images/fiha-front-noir.png",
+      "images/fiha-back-noir.png"
     ]
   },
   {
